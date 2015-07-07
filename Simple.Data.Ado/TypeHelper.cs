@@ -24,6 +24,7 @@ namespace Simple.Data.Ado
                                                                   typeof (decimal),
                                                                   typeof (DateTime),
                                                                   typeof (DateTimeOffset),
+                                                                  typeof (TimeSpan),
                                                                   typeof (string),
                                                                   typeof (byte[]),
                                                                   typeof (Guid),
@@ -59,7 +60,7 @@ namespace Simple.Data.Ado
                                                                                       {DbType.UInt32, typeof(uint)},
                                                                                       {DbType.DateTimeOffset, typeof(DateTimeOffset)},
                                                                                   };
-        
+
         public static bool IsKnownType(Type type)
         {
             return BaseTypes.Contains(type);
@@ -67,7 +68,7 @@ namespace Simple.Data.Ado
 
         public static Type ToClrType(this DbType dbType)
         {
-            if (!DbTypeToClrTypeMap.ContainsKey(dbType)) return typeof (object);
+            if (!DbTypeToClrTypeMap.ContainsKey(dbType)) return typeof(object);
             return DbTypeToClrTypeMap[dbType];
         }
     }
