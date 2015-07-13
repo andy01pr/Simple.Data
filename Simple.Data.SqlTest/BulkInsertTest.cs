@@ -141,6 +141,11 @@ namespace Simple.Data.SqlTest
             if (other == null) return false;
             return other.FirstName == FirstName && other.LastName == LastName && other.MiddleInitial == MiddleInitial;
         }
+
+        public override int GetHashCode()
+        {
+            return Id.GetHashCode();
+        }
     }
 
     class SchemaItem
